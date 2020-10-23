@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Loading from "../components/Loading";
 
 const AddNewContact = lazy(() => import("./AddNewContact"));
