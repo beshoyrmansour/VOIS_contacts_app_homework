@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/vodafone_logo.svg";
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light container">
       <div className="d-flex justify-content-between align-items-center w-100">
-        <a className="navbar-brand" href="#">
-          <img src={logo} height="50" alt="" />
-        </a>
+        <Link className="navbar-brand" to="/">
+          <img src={logo} height="50" alt="vodafone logo" />
+        </Link>
       </div>
 
       <div className="collapse navbar-collapse">
