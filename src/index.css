@@ -64,7 +64,7 @@
   src: local("Open_Sans"),
     url(./assets/fonts/Open_Sans/OpenSans-ExtraBold.ttf) format("truetype");
   font-style: normal;
-  font-weight: bolder;
+  font-weight: 900;
 }
 
 @font-face {
@@ -73,7 +73,7 @@
     url(./assets/fonts/Open_Sans/OpenSans-ExtraBoldItalic.ttf)
       format("truetype");
   font-style: italic;
-  font-weight: bolder;
+  font-weight: 900;
 }
 
 body {
