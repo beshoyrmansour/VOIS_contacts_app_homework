@@ -16,7 +16,7 @@ const AllContacts = () => {
       <h2 className="vf-title text-center mb-5 pb-2 font-weight-bold">
         Contacts
       </h2>
-      <div className="row">
+      <div className="row mb-5 pb-4">
         {state.isFetchingAllContacts && state.allContacts.length ? (
           <Loading />
         ) : (

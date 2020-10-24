@@ -4,7 +4,7 @@ import logo from "../assets/vodafone_logo.svg";
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light container">
-      <div className="d-flex justify-content-between align-items-center w-100">
+      <div className="d-flex justify-content-md-between justify-content-center align-items-center w-100">
         <Link className="navbar-brand" to="/">
           <img src={logo} height="50" alt="vodafone logo" />
         </Link>
