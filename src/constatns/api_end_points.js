@@ -1,7 +1,7 @@
 const hostname = window && window.location && window.location.hostname;
-const prod = "https://jsonplaceholder.typicode.com/";
-const staging = "https://jsonplaceholder.typicode.com/";
-const dev = "https://jsonplaceholder.typicode.com/";
+const prod = "https://jsonplaceholder.typicode.com";
+const staging = "https://jsonplaceholder.typicode.com";
+const dev = "https://jsonplaceholder.typicode.com";
 let base = prod;
 
 switch (hostname) {
