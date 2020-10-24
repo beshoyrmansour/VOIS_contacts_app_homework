@@ -6,6 +6,8 @@
   text-align: center;
   align-items: center;
   justify-content: center;
+  bottom: 0px;
+  left: 0px;
 }
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */

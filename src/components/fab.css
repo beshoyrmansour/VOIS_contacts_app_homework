@@ -21,7 +21,8 @@
   align-items: center;
 }
 
-.fab:focus {
+.fab:focus,
+.fab:hover {
   transform: scale(1.1);
   transform: rotate(45deg);
   -ms-transform: rotate(45deg);
