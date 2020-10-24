@@ -17,7 +17,7 @@ const AllContacts = () => {
         Contacts
       </h2>
       <div className="row mb-5 pb-4">
-        {state.isFetchingAllContacts && state.allContacts.length ? (
+        {state.isShowLoading && state.allContacts.length <= 0 ? (
           <Loading />
         ) : (
           state.allContacts.map((contact) => (

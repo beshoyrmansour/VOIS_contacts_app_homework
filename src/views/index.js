@@ -30,7 +30,7 @@ const MainRouterIndex = () => {
           exact
           component={EditContact}
           key="EditContact"
-          path="/edit/:contact_id"
+          path="/:contact_id/edit"
           name="EditContact"
         />
         <Route
@@ -40,7 +40,18 @@ const MainRouterIndex = () => {
           path="/:contact_id"
           name="ContactDetails"
         />
-        <Route component={NotFound404} key="404" path="*" name="404" />
+        <Route
+          component={NotFound404}
+          key="not-found-404"
+          path="/not-found-404"
+          name="not-found-404"
+        />
+        <Route
+          component={NotFound404}
+          key="not-found-404"
+          path="*"
+          name="not-found-404"
+        />
       </Switch>
     </Suspense>
   );

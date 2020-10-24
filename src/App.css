@@ -11,12 +11,18 @@
   background-size: 50px 3px;
   /* padding-bottom: 1rem; */
 }
-/* .vf-title::after{
-content: "";
-position: absolute;
-width: 40%;
-height: 10px;
-background-color: #e60000;
-bottom: 0px;
-left: 50%;
-} */
+
+.text-fv {
+  color: #e60000;
+}
+
+.btn-outline-vf {
+  color: #e60000;
+  border-color: #e60000;
+}
+
+.btn-outline-vf:hover {
+  color: #fff;
+  background-color: #e60000;
+  border-color: #e60000;
+}

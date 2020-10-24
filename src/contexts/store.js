@@ -2,7 +2,8 @@ import React, { createContext, useReducer } from "react";
 import ACTIONS from "./types";
 const initialState = {
   allContacts: [],
-  isFetchingAllContacts: true,
+  isShowLoading: false,
+  selectedContact: {},
 };
 const store = createContext({});
 const { Provider } = store;
@@ -10,16 +11,28 @@ const { Provider } = store;
 const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
-      case ACTIONS.GET_ALL_CONTACTS_START:
+      case ACTIONS.TOGGLE_LOADING:
         return {
           ...state,
-          isFetchingAllContacts: true,
+          isShowLoading: !state.isShowLoading,
         };
       case ACTIONS.GET_ALL_CONTACTS:
         return {
           ...state,
           allContacts: [...action.payload],
-          isFetchingAllContacts: false,
+          isShowLoading: false,
+        };
+      case ACTIONS.SET_SELECTED_CONTACT_START:
+        return {
+          ...state,
+          selectedContact: [...action.payload],
+          isShowLoading: false,
+        };
+      case ACTIONS.SET_SELECTED_CONTACT:
+        return {
+          ...state,
+          selectedContact: { ...action.payload },
+          isShowLoading: false,
         };
 
       default:
