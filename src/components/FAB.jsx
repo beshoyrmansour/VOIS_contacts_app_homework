@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import "./fab.css";
 const FAB = () => {
   const location = useLocation();
-  console.log(location.pathname);
   return location.pathname === "/add-new" ? (
     <></>
   ) : (
