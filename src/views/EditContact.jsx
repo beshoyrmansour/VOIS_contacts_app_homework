@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
-import { fetchContactDetails } from "../contexts/actions";
+import { fetchContactDetails, updateContact } from "../contexts/actions";
 import { store } from "../contexts/store";
 
 const EditContact = (props) => {
   const { dispatch, state } = useContext(store);
   let { contact_id } = useParams();
-  let { history } = useHistory();
-  const [isEdit, setIsEdit] = useState(true);
+  let history = useHistory();
 
   const [name, setName] = useState(
     "name" in state.selectedContact ? state.selectedContact.name : ""
@@ -22,6 +21,11 @@ const EditContact = (props) => {
 
   const handleSaveContact = () => {
     console.log("handleEditContact");
+    updateContact(contact_id, {
+      name: name,
+      email: email,
+      phone: phone,
+    })(dispatch);
     history.push(`/${contact_id}`);
   };
 
@@ -45,11 +49,11 @@ const EditContact = (props) => {
   }, [state.selectedContact]);
 
   useEffect(() => {
-    if (contact_id !== "") {
+    if (contact_id) {
       if (
         !(
           "id" in state.selectedContact &&
-          state.selectedContact.id === contact_id
+          state.selectedContact.id == contact_id
         )
       ) {
         fetchContactDetails(contact_id)(dispatch);
@@ -59,7 +63,7 @@ const EditContact = (props) => {
     }
 
     return () => {};
-  }, [contact_id]);
+  }, []);
 
   return (
     <div className="container">
@@ -67,7 +71,7 @@ const EditContact = (props) => {
         <>
           {"name" in state.selectedContact ? (
             <h2 className="vf-title text-center mb-5 pb-2 font-weight-bold">
-              {state.selectedContact.name}'s Profile
+              Edit {state.selectedContact.name}'s Profile
             </h2>
           ) : (
             <></>

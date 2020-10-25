@@ -3,10 +3,8 @@ import { useHistory, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import { fetchContactDetails } from "../contexts/actions";
 import { store } from "../contexts/store";
-import ACTIONS from "../contexts/types";
 
 const ContactDetails = (props) => {
-  const [isEdit, setIsEdit] = useState(false);
   let { contact_id } = useParams();
   const history = useHistory();
 
@@ -15,7 +13,6 @@ const ContactDetails = (props) => {
     console.log("handleDeleteContact");
   };
   const handleEditContact = () => {
-    console.log("handleEditContact");
     history.push(`/${contact_id}/edit`);
   };
 
@@ -24,21 +21,21 @@ const ContactDetails = (props) => {
       if (
         !(
           "id" in state.selectedContact &&
-          state.selectedContact.id === contact_id
+          state.selectedContact.id.toString() === contact_id.toString()
         )
       ) {
         fetchContactDetails(contact_id)(dispatch).then((res) => {
-          if (Object.keys(res).length === 0) {
+          if (Object.keys(res).length === 0) {  
             history.push("/");
           }
         });
       }
     } else {
-      history.push("/");
+      history.goBack();
     }
 
     return () => {};
-  }, [contact_id]);
+  }, []);
 
   return (
     <div className="container">

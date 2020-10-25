@@ -32,5 +32,3 @@ const ContactCard = ({ contact, ...props }) => {
 };
 
 export default ContactCard;
-
-

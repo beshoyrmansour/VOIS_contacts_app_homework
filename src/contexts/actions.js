@@ -28,3 +28,10 @@ export const fetchContactDetails = (id) => (dispatch) => {
       })
   );
 };
+
+export const updateContact = (contactId, newData) => (dispatch) => {
+  return dispatch({
+    type: ACTIONS.UPDATE_CONTACT,
+    payload: { contactId, newData },
+  });
+};

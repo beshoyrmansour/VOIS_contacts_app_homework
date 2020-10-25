@@ -7,7 +7,7 @@ import { store } from "../contexts/store";
 const AllContacts = () => {
   const { dispatch, state } = useContext(store);
   useEffect(() => {
-    fetchAllContacts()(dispatch);
+    if (state.allContacts.length <= 0) fetchAllContacts()(dispatch);
     return () => {};
   }, []);
 

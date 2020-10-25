@@ -34,6 +34,28 @@ const StateProvider = ({ children }) => {
           selectedContact: { ...action.payload },
           isShowLoading: false,
         };
+      case ACTIONS.UPDATE_CONTACT:
+        return {
+          ...state,
+          selectedContact: {
+            ...state.selectedContact,
+            ...action.payload.newData,
+          },
+          isShowLoading: false,
+          allContacts: state.allContacts.map((c) =>
+          c.id === action.payload.contactId
+          ? { ...c, ...action.payload.newData }
+          : { ...c }
+          ),
+        };
+        case ACTIONS.FILTTER_CONTACTS:
+          return {
+            ...state,
+
+          }
+
+        
+        
 
       default:
         return { ...state };
