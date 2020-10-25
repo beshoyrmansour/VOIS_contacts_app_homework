@@ -40,7 +40,7 @@ const AddNewContact = () => {
       <h2 className="vf-title text-center mb-5 pb-2 font-weight-bold">
         Add New Contact
       </h2>
-      <div className="row">
+      <div className="row vf-fadein">
         <div className="col-12 col-lg-8 offset-lg-2 ">
           <div className="form-group row mb-4 ">
             <label

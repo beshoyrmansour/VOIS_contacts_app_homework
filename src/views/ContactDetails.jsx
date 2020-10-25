@@ -48,7 +48,7 @@ const ContactDetails = (props) => {
           ) : (
             <></>
           )}
-          <div className="row">
+          <div className="row vf-fadein">
             <div className="col-12 col-lg-8 offset-lg-1">
               <div className="form-group row mb-4 ">
                 <label
