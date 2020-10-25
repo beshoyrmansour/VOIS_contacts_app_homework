@@ -23,7 +23,6 @@ export const fetchContactDetails = (id) => (dispatch) => {
         return data;
       })
       .catch((err) => {
-        console.log("ERR");
         dispatch({ type: ACTIONS.TOGGLE_LOADING });
       })
   );
@@ -51,5 +50,11 @@ export const createNewContact = (newContactData) => (dispatch) => {
   return dispatch({
     type: ACTIONS.CREATE_NEW_CONTACT,
     payload: newContactData,
+  });
+};
+export const searchContacts = (query) => (dispatch) => {
+  return dispatch({
+    type: ACTIONS.SEARCH_CONTACTS,
+    payload: query,
   });
 };

@@ -70,8 +70,33 @@ const StateProvider = ({ children }) => {
         return {
           ...state,
           filterChar: "",
-          allContacts: state._allContacts,
+          allContacts: [...state._allContacts],
         };
+      case ACTIONS.SEARCH_CONTACTS:
+        if (action.payload) {
+          let results = [];
+          for (var i = 0; i < state._allContacts.length; i++) {
+            let contact = state._allContacts[i];
+            for (let key in contact) {
+              if (
+                key in contact &&
+                contact[key] !== "id" &&
+                contact[key]
+                  .toString()
+                  .toLowerCase()
+                  .indexOf(action.payload.toLowerCase()) != -1
+              ) {
+                results.push(contact);
+              }
+            }
+          }
+
+          return {
+            ...state,
+            filterChar: "",
+            allContacts: [...results],
+          };
+        }
 
       default:
         return { ...state };

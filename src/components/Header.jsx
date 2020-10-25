@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/vodafone_logo.svg";
+import Search from "./Search";
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light container">
@@ -11,14 +12,7 @@ const Header = () => {
       </div>
 
       <div className="collapse navbar-collapse">
-        <form className="form-inline d-flex flex-row">
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-        </form>
+        <Search />
       </div>
     </nav>
   );
