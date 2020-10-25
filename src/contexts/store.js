@@ -1,9 +1,12 @@
 import React, { createContext, useReducer } from "react";
 import ACTIONS from "./types";
 const initialState = {
+  _allContacts: [],
   allContacts: [],
   isShowLoading: false,
   selectedContact: {},
+  initials: [],
+  filterChar: "",
 };
 const store = createContext({});
 const { Provider } = store;
@@ -19,7 +22,13 @@ const StateProvider = ({ children }) => {
       case ACTIONS.GET_ALL_CONTACTS:
         return {
           ...state,
+          _allContacts: [...action.payload],
           allContacts: [...action.payload],
+          initials: action.payload
+            .map((contact) => contact.name.charAt(0))
+            .filter(function (item, pos, self) {
+              return self.indexOf(item) == pos;
+            }),
           isShowLoading: false,
         };
       case ACTIONS.SET_SELECTED_CONTACT_START:
@@ -43,19 +52,21 @@ const StateProvider = ({ children }) => {
           },
           isShowLoading: false,
           allContacts: state.allContacts.map((c) =>
-          c.id === action.payload.contactId
-          ? { ...c, ...action.payload.newData }
-          : { ...c }
+            c.id === action.payload.contactId
+              ? { ...c, ...action.payload.newData }
+              : { ...c }
           ),
         };
-        case ACTIONS.FILTTER_CONTACTS:
-          return {
-            ...state,
-
-          }
-
-        
-        
+      case ACTIONS.FILTTER_CONTACTS:
+        console.log(action.payload);
+        return {
+          ...state,
+          filterChar: action.payload,
+          allContacts: state._allContacts.filter(
+            (c) =>
+              c.name.charAt(0).toUpperCase() === action.payload.toUpperCase()
+          ),
+        };
 
       default:
         return { ...state };

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import ContactCard from "../components/ContactCard";
+import Filters from "../components/Filters";
 import Loading from "../components/Loading";
 import { fetchAllContacts } from "../contexts/actions";
 import { store } from "../contexts/store";
@@ -16,6 +17,7 @@ const AllContacts = () => {
       <h2 className="vf-title text-center mb-5 pb-2 font-weight-bold">
         Contacts
       </h2>
+      <Filters/>
       <div className="row mb-5 pb-4">
         {state.isShowLoading && state.allContacts.length <= 0 ? (
           <Loading />

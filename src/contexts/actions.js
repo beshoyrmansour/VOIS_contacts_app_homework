@@ -35,3 +35,10 @@ export const updateContact = (contactId, newData) => (dispatch) => {
     payload: { contactId, newData },
   });
 };
+
+export const applyCharFilter = (char) => (dispatch) => {
+  return dispatch({
+    type: ACTIONS.FILTTER_CONTACTS,
+    payload: char,
+  });
+};
