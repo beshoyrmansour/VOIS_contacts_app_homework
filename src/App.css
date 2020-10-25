@@ -26,3 +26,29 @@
   background-color: #e60000;
   border-color: #e60000;
 }
+.activeFilter {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.activeFilter:hover:after {
+  content: "+";
+  border: solid 1px #e60000;
+  border-radius: 50%;
+  background-color: #e60000;
+  color: #fff;
+  transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  position: absolute;
+  bottom: -15px;
+  /* right: 0px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.4;
+}

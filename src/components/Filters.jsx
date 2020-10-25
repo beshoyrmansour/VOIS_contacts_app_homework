@@ -10,13 +10,12 @@ const Filters = () => {
       ? clearCharFilter()(dispatch)
       : applyCharFilter(char)(dispatch);
   };
-  console.log("Filters");
   return state.initials.length ? (
     <ul className="nav nav-fill justify-content-center mb-2 ">
       {state.initials.map((char) => (
         <li
           className={`text-uppercase nav-item mx-3 h3 ${
-            state.filterChar === char ? "text-fv" : "text-dark"
+            state.filterChar === char ? "text-fv activeFilter" : "text-dark"
           } `}
           key={char}
           onClick={() => handleFilter(char)}
