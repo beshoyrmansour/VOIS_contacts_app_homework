@@ -42,3 +42,14 @@ export const applyCharFilter = (char) => (dispatch) => {
     payload: char,
   });
 };
+export const clearCharFilter = () => (dispatch) => {
+  return dispatch({
+    type: ACTIONS.CLEAR_FILTTER_CONTACTS,
+  });
+};
+export const createNewContact = (newContactData) => (dispatch) => {
+  return dispatch({
+    type: ACTIONS.CREATE_NEW_CONTACT,
+    payload: newContactData,
+  });
+};

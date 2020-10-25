@@ -58,7 +58,6 @@ const StateProvider = ({ children }) => {
           ),
         };
       case ACTIONS.FILTTER_CONTACTS:
-        console.log(action.payload);
         return {
           ...state,
           filterChar: action.payload,
@@ -66,6 +65,12 @@ const StateProvider = ({ children }) => {
             (c) =>
               c.name.charAt(0).toUpperCase() === action.payload.toUpperCase()
           ),
+        };
+      case ACTIONS.CLEAR_FILTTER_CONTACTS:
+        return {
+          ...state,
+          filterChar: "",
+          allContacts: state._allContacts,
         };
 
       default:
