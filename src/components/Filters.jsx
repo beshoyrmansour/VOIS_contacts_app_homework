@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { store } from "../contexts/store";
-import { applyCharFilter } from "../contexts/actions";
+import { applyCharFilter, clearCharFilter } from "../contexts/actions";
 
 const Filters = () => {
   const { dispatch, state } = useContext(store);
 
   const handleFilter = (char) => {
-    applyCharFilter(char)(dispatch);
+    state.filterChar === char
+      ? clearCharFilter()(dispatch)
+      : applyCharFilter(char)(dispatch);
   };
   console.log("Filters");
   return state.initials.length ? (
