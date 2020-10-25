@@ -20,7 +20,6 @@ const EditContact = (props) => {
   );
 
   const handleSaveContact = () => {
-    console.log("handleEditContact");
     updateContact(contact_id, {
       name: name,
       email: email,

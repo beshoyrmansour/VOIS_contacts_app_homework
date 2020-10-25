@@ -22,7 +22,6 @@ const AddNewContact = () => {
   };
 
   const handleSaveContact = () => {
-    console.log("handleSaveContact");
     createNewContact({
       name: name,
       email: email,
